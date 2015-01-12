@@ -7,15 +7,37 @@
 //
 
 #import "AppDelegate.h"
+#import "ESTBeaconManager.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <ESTBeaconManagerDelegate, CLLocationManagerDelegate>
 
 @end
 
 @implementation AppDelegate
+{
+    // location manager
+    CLLocationManager *_locationManager;
+    
+    // flag to prevent duplicate notifications
+    BOOL isInsideRegion;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // define location manager
+    _locationManager = [[CLLocationManager alloc] init];
+    
+    // set the delegate
+    _locationManager.delegate = self;
+    
+    
+    
+    // define type of registered local notification
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
+    
     // Override point for customization after application launch.
     return YES;
 }
