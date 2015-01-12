@@ -14,6 +14,7 @@
 		04ACE6531A63771C00E0BBB5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04ACE6521A63771C00E0BBB5 /* Images.xcassets */; };
 		04ACE6561A63771C00E0BBB5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ACE6541A63771C00E0BBB5 /* LaunchScreen.xib */; };
 		04ACE6621A63771C00E0BBB5 /* CleanMGHTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE6611A63771C00E0BBB5 /* CleanMGHTests.m */; };
+		04ACE6851A63781300E0BBB5 /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACE6841A63781300E0BBB5 /* libEstimoteSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,30 @@
 		04ACE65B1A63771C00E0BBB5 /* CleanMGHTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanMGHTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04ACE6601A63771C00E0BBB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04ACE6611A63771C00E0BBB5 /* CleanMGHTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CleanMGHTests.m; sourceTree = "<group>"; };
+		04ACE66D1A63781300E0BBB5 /* ESTBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeacon.h; sourceTree = "<group>"; };
+		04ACE66E1A63781300E0BBB5 /* ESTBeaconDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconDefinitions.h; sourceTree = "<group>"; };
+		04ACE66F1A63781300E0BBB5 /* ESTBeaconFirmwareVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconFirmwareVO.h; sourceTree = "<group>"; };
+		04ACE6701A63781300E0BBB5 /* ESTBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconManager.h; sourceTree = "<group>"; };
+		04ACE6711A63781300E0BBB5 /* ESTBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconRegion.h; sourceTree = "<group>"; };
+		04ACE6721A63781300E0BBB5 /* ESTBeaconUpdateConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateConfig.h; sourceTree = "<group>"; };
+		04ACE6731A63781300E0BBB5 /* ESTBeaconUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateInfo.h; sourceTree = "<group>"; };
+		04ACE6741A63781300E0BBB5 /* ESTBeaconVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconVO.h; sourceTree = "<group>"; };
+		04ACE6751A63781300E0BBB5 /* ESTBulkUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBulkUpdater.h; sourceTree = "<group>"; };
+		04ACE6761A63781300E0BBB5 /* ESTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTConfig.h; sourceTree = "<group>"; };
+		04ACE6771A63781300E0BBB5 /* ESTDateRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTDateRule.h; sourceTree = "<group>"; };
+		04ACE6781A63781300E0BBB5 /* ESTDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTDefinitions.h; sourceTree = "<group>"; };
+		04ACE6791A63781300E0BBB5 /* ESTFirmwareInfoVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTFirmwareInfoVO.h; sourceTree = "<group>"; };
+		04ACE67A1A63781300E0BBB5 /* ESTMotionRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTMotionRule.h; sourceTree = "<group>"; };
+		04ACE67B1A63781300E0BBB5 /* ESTNearable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTNearable.h; sourceTree = "<group>"; };
+		04ACE67C1A63781300E0BBB5 /* ESTNearableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTNearableManager.h; sourceTree = "<group>"; };
+		04ACE67D1A63781300E0BBB5 /* ESTNearableRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTNearableRule.h; sourceTree = "<group>"; };
+		04ACE67E1A63781300E0BBB5 /* ESTOrientationRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTOrientationRule.h; sourceTree = "<group>"; };
+		04ACE67F1A63781300E0BBB5 /* ESTProximityRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTProximityRule.h; sourceTree = "<group>"; };
+		04ACE6801A63781300E0BBB5 /* ESTRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTRule.h; sourceTree = "<group>"; };
+		04ACE6811A63781300E0BBB5 /* ESTTemperatureRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTTemperatureRule.h; sourceTree = "<group>"; };
+		04ACE6821A63781300E0BBB5 /* ESTTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTTrigger.h; sourceTree = "<group>"; };
+		04ACE6831A63781300E0BBB5 /* ESTTriggerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTTriggerManager.h; sourceTree = "<group>"; };
+		04ACE6841A63781300E0BBB5 /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEstimoteSDK.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04ACE6851A63781300E0BBB5 /* libEstimoteSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +114,7 @@
 				04ACE64F1A63771C00E0BBB5 /* Main.storyboard */,
 				04ACE6521A63771C00E0BBB5 /* Images.xcassets */,
 				04ACE6541A63771C00E0BBB5 /* LaunchScreen.xib */,
+				04ACE66B1A63781300E0BBB5 /* EstimoteSDK */,
 				04ACE6451A63771C00E0BBB5 /* Supporting Files */,
 			);
 			path = CleanMGH;
@@ -117,6 +144,46 @@
 				04ACE6601A63771C00E0BBB5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04ACE66B1A63781300E0BBB5 /* EstimoteSDK */ = {
+			isa = PBXGroup;
+			children = (
+				04ACE66C1A63781300E0BBB5 /* Headers */,
+				04ACE6841A63781300E0BBB5 /* libEstimoteSDK.a */,
+			);
+			name = EstimoteSDK;
+			path = ../EstimoteSDK;
+			sourceTree = "<group>";
+		};
+		04ACE66C1A63781300E0BBB5 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				04ACE66D1A63781300E0BBB5 /* ESTBeacon.h */,
+				04ACE66E1A63781300E0BBB5 /* ESTBeaconDefinitions.h */,
+				04ACE66F1A63781300E0BBB5 /* ESTBeaconFirmwareVO.h */,
+				04ACE6701A63781300E0BBB5 /* ESTBeaconManager.h */,
+				04ACE6711A63781300E0BBB5 /* ESTBeaconRegion.h */,
+				04ACE6721A63781300E0BBB5 /* ESTBeaconUpdateConfig.h */,
+				04ACE6731A63781300E0BBB5 /* ESTBeaconUpdateInfo.h */,
+				04ACE6741A63781300E0BBB5 /* ESTBeaconVO.h */,
+				04ACE6751A63781300E0BBB5 /* ESTBulkUpdater.h */,
+				04ACE6761A63781300E0BBB5 /* ESTConfig.h */,
+				04ACE6771A63781300E0BBB5 /* ESTDateRule.h */,
+				04ACE6781A63781300E0BBB5 /* ESTDefinitions.h */,
+				04ACE6791A63781300E0BBB5 /* ESTFirmwareInfoVO.h */,
+				04ACE67A1A63781300E0BBB5 /* ESTMotionRule.h */,
+				04ACE67B1A63781300E0BBB5 /* ESTNearable.h */,
+				04ACE67C1A63781300E0BBB5 /* ESTNearableManager.h */,
+				04ACE67D1A63781300E0BBB5 /* ESTNearableRule.h */,
+				04ACE67E1A63781300E0BBB5 /* ESTOrientationRule.h */,
+				04ACE67F1A63781300E0BBB5 /* ESTProximityRule.h */,
+				04ACE6801A63781300E0BBB5 /* ESTRule.h */,
+				04ACE6811A63781300E0BBB5 /* ESTTemperatureRule.h */,
+				04ACE6821A63781300E0BBB5 /* ESTTrigger.h */,
+				04ACE6831A63781300E0BBB5 /* ESTTriggerManager.h */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +235,12 @@
 				TargetAttributes = {
 					04ACE6411A63771C00E0BBB5 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 3GBQ2H4QX7;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					04ACE65A1A63771C00E0BBB5 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -343,8 +416,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CleanMGH/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EstimoteSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -353,8 +431,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CleanMGH/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EstimoteSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
