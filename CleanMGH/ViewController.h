@@ -13,7 +13,5 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *regionLabel;
 
-- (id)initWithBeacon:(ESTBeacon *)beacon;
-
 @end
 
