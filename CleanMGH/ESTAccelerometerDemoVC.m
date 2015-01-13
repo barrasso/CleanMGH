@@ -59,7 +59,7 @@
 - (void)readAccelerometerCount
 {
     [self.beacon readAccelerometerCountWithCompletion:^(NSNumber* value, NSError *error) {
-        self.counterLabel.text = [NSString stringWithFormat:@"Beacon moves count: %tu", [value integerValue]];
+        self.counterLabel.text = [NSString stringWithFormat:@"Hands Cleaned: %tu", [value integerValue]];
     }];
 }
 
@@ -80,6 +80,7 @@
 }
 
 #pragma mark - ESTBeaconDelegate
+
 - (void)beaconConnectionDidSucceeded:(ESTBeacon *)beacon
 {
     [self.activityIndicator stopAnimating];

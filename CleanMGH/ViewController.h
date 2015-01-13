@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "ESTBeacon.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <ESTBeaconDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *regionLabel;
+- (id)initWithBeacon:(ESTBeacon*)beacon;
+
 
 @end
 

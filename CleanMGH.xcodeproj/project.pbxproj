@@ -19,6 +19,7 @@
 		04ACE68B1A6378BB00E0BBB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACE68A1A6378BB00E0BBB5 /* SystemConfiguration.framework */; };
 		04ACE68E1A64C91D00E0BBB5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ACE68D1A64C91D00E0BBB5 /* ViewController.xib */; };
 		04ACE6911A64C92600E0BBB5 /* ESTAccelerometerDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE6901A64C92600E0BBB5 /* ESTAccelerometerDemoVC.m */; };
+		04ACE6CD1A64D8C400E0BBB5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACE6CC1A64D8C400E0BBB5 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		04ACE68D1A64C91D00E0BBB5 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		04ACE68F1A64C92600E0BBB5 /* ESTAccelerometerDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTAccelerometerDemoVC.h; sourceTree = "<group>"; };
 		04ACE6901A64C92600E0BBB5 /* ESTAccelerometerDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESTAccelerometerDemoVC.m; sourceTree = "<group>"; };
+		04ACE6CC1A64D8C400E0BBB5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		04ACE6CE1A64D8C400E0BBB5 /* CleanMGH.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CleanMGH.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 			files = (
 				04ACE68B1A6378BB00E0BBB5 /* SystemConfiguration.framework in Frameworks */,
 				04ACE6891A6378B200E0BBB5 /* CoreLocation.framework in Frameworks */,
+				04ACE6CD1A64D8C400E0BBB5 /* AudioToolbox.framework in Frameworks */,
 				04ACE6871A6378AA00E0BBB5 /* CoreBluetooth.framework in Frameworks */,
 				04ACE6851A63781300E0BBB5 /* libEstimoteSDK.a in Frameworks */,
 			);
@@ -121,6 +125,7 @@
 		04ACE6441A63771C00E0BBB5 /* CleanMGH */ = {
 			isa = PBXGroup;
 			children = (
+				04ACE6CE1A64D8C400E0BBB5 /* CleanMGH.entitlements */,
 				04ACE68F1A64C92600E0BBB5 /* ESTAccelerometerDemoVC.h */,
 				04ACE6901A64C92600E0BBB5 /* ESTAccelerometerDemoVC.m */,
 				04ACE6491A63771C00E0BBB5 /* AppDelegate.h */,
@@ -203,6 +208,7 @@
 		04ACE68C1A6378CE00E0BBB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04ACE6CC1A64D8C400E0BBB5 /* AudioToolbox.framework */,
 				04ACE68A1A6378BB00E0BBB5 /* SystemConfiguration.framework */,
 				04ACE6881A6378B200E0BBB5 /* CoreLocation.framework */,
 				04ACE6861A6378AA00E0BBB5 /* CoreBluetooth.framework */,
@@ -262,6 +268,9 @@
 						DevelopmentTeam = 3GBQ2H4QX7;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
 								enabled = 1;
 							};
 						};
@@ -433,7 +442,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CleanMGH/CleanMGH.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -446,6 +457,7 @@
 					"$(PROJECT_DIR)/EstimoteSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -453,7 +465,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CleanMGH/CleanMGH.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -466,6 +480,7 @@
 					"$(PROJECT_DIR)/EstimoteSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

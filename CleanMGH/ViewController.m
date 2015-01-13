@@ -8,18 +8,19 @@
 
 #import "ViewController.h"
 #import "ESTBeaconManager.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface ViewController () <ESTBeaconManagerDelegate>
 
 // UI properties
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *beaconImage;
 @property (strong, nonatomic) IBOutlet UILabel *counterLabel;
 @property (strong, nonatomic) IBOutlet UILabel *activityLabel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-
-
 // estimote beacon properties
+@property (nonatomic, strong) ESTBeacon *beacon;
 @property (nonatomic, strong) ESTBeaconManager  *beaconManager;
 @property (nonatomic, strong) ESTBeaconRegion   *beaconRegion;
 
@@ -28,6 +29,16 @@
 @implementation ViewController
 {
     BOOL _isInsideRegion;
+}
+
+- (id)initWithBeacon:(ESTBeacon*)beacon
+{
+    self = [self init];
+    if (self)
+    {
+        self.beacon = beacon;
+    }
+    return self;
 }
 
 #pragma mark - View Initialization
@@ -67,7 +78,11 @@
     // start looking for estimote beacons in region
     // when beacon ranged beaconManager:didRangeBeacons:inRegion: invoked
     [self.beaconManager startRangingBeaconsInRegion:self.beaconRegion];
-
+    
+    //In order to read beacon accelerometer we need to connect to it.
+    self.beacon.delegate = self;
+    [self.beacon connect];
+    [self.activityIndicator startAnimating];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,9 +103,9 @@
         notice.alertAction = @"Open";
         
         [[UIApplication sharedApplication] presentLocalNotificationNow:notice];
+        
+        _isInsideRegion = YES;
     }
-    
-    _isInsideRegion = YES;
 }
 
 - (void)sendExitNotification
@@ -103,9 +118,9 @@
         notice.alertAction = @"Open";
         
         [[UIApplication sharedApplication] presentLocalNotificationNow:notice];
+        
+        _isInsideRegion = NO;
     }
-    
-    _isInsideRegion = NO;
 }
 
 #pragma mark - ESTBeaconManager delegate
@@ -138,41 +153,118 @@
 {
     for (ESTBeacon *beacon in beacons) {
         NSLog(@"Region State: %ld",beacon.proximity);
-        
+        NSLog(@"RSSI Value: %li",(long)beacon.rssi);
         // calculate proximity state
         switch (beacon.proximity)
         {
             case CLProximityUnknown:
-                self.regionLabel.text = @"Unknown";
+                self.locationLabel.text = @"Unknown";
                 
                 [self sendExitNotification];
-                _isInsideRegion = NO;
                 
                 break;
             case CLProximityImmediate:
-                self.regionLabel.text = @"Immediate";
+                self.locationLabel.text = @"Immediate";
                 
                 [self sendEnterNotification];
-                _isInsideRegion = YES;
                 
                 break;
             case CLProximityNear:
-                self.regionLabel.text = @"Near";
+                self.locationLabel.text = @"Near";
                 
                 [self sendEnterNotification];
-                _isInsideRegion = YES;
                 
                 break;
             case CLProximityFar:
-                self.regionLabel.text = @"Far";
+                self.locationLabel.text = @"Far";
                 
                 [self sendEnterNotification];
-                _isInsideRegion = YES;
                 
                 break;
             default:
                 break;
         }
+    }
+}
+
+- (void)beaconConnectionDidSucceeded:(ESTBeacon *)beacon
+{
+    [self.activityIndicator stopAnimating];
+    self.activityIndicator.alpha = 0.;
+    self.activityLabel.text = @"Connected!";
+    
+    //After successful connection, we can read or reset accelerometer data.
+    [self.beacon resetAccelerometerCountWithCompletion:^(unsigned short value, NSError *error) {
+        
+        NSLog(@"Error: %@", error);
+        
+        if (!error)
+        {
+            self.counterLabel.text = [NSString stringWithFormat:@"Beacon move count: %hu", value];
+        }
+        else
+        {
+            self.activityLabel.text = [NSString stringWithFormat:@"Error:%@", [error localizedDescription]];
+            self.activityLabel.textColor = [UIColor redColor];
+        }
+        
+    }];
+}
+
+- (void)beaconConnectionDidFail:(ESTBeacon *)beacon withError:(NSError *)error
+{
+    NSLog(@"Something went wrong. Beacon connection Did Fail. Error: %@", error);
+    
+    [self.activityIndicator stopAnimating];
+    self.activityIndicator.alpha = 0.;
+    
+    self.activityLabel.text = @"Connection failed";
+    self.activityLabel.textColor = [UIColor redColor];
+    
+    UIAlertView* errorView = [[UIAlertView alloc] initWithTitle:@"Connection error"
+                                                        message:error.localizedDescription
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    
+    [errorView show];
+}
+
+- (void)beacon:(ESTBeacon *)beacon accelerometerStateChanged:(BOOL)state
+{
+    //State is updated after beacon accelerometer was stabilised.
+    if (state)
+    {
+        [self vibrateEffect];
+    }
+    else
+    {
+        [self readAccelerometerCount];
+    }
+}
+
+#pragma mark - Other Methods
+
+- (void)readAccelerometerCount
+{
+    [self.beacon readAccelerometerCountWithCompletion:^(NSNumber* value, NSError *error) {
+        self.counterLabel.text = [NSString stringWithFormat:@"Hands Cleaned: %tu", [value integerValue]];
+    }];
+}
+
+- (void)vibrateEffect
+{
+    if (self.beacon.isMoving && self.beacon.connectionStatus == ESTConnectionStatusConnected)
+    {
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+        
+        CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.x"];
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        animation.duration = 0.6;
+        animation.values = @[ @(-20), @(20), @(-20), @(20), @(-10), @(10), @(-5), @(5), @(0) ];
+        [self.beaconImage.layer addAnimation:animation forKey:@"shake"];
+        
+        [self performSelector:@selector(vibrateEffect) withObject:nil afterDelay:0.6];
     }
 }
 
