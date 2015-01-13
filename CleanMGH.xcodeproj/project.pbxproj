@@ -10,7 +10,6 @@
 		04ACE6481A63771C00E0BBB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE6471A63771C00E0BBB5 /* main.m */; };
 		04ACE64B1A63771C00E0BBB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE64A1A63771C00E0BBB5 /* AppDelegate.m */; };
 		04ACE64E1A63771C00E0BBB5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE64D1A63771C00E0BBB5 /* ViewController.m */; };
-		04ACE6511A63771C00E0BBB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04ACE64F1A63771C00E0BBB5 /* Main.storyboard */; };
 		04ACE6531A63771C00E0BBB5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04ACE6521A63771C00E0BBB5 /* Images.xcassets */; };
 		04ACE6561A63771C00E0BBB5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ACE6541A63771C00E0BBB5 /* LaunchScreen.xib */; };
 		04ACE6621A63771C00E0BBB5 /* CleanMGHTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE6611A63771C00E0BBB5 /* CleanMGHTests.m */; };
@@ -18,6 +17,8 @@
 		04ACE6871A6378AA00E0BBB5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACE6861A6378AA00E0BBB5 /* CoreBluetooth.framework */; };
 		04ACE6891A6378B200E0BBB5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACE6881A6378B200E0BBB5 /* CoreLocation.framework */; };
 		04ACE68B1A6378BB00E0BBB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACE68A1A6378BB00E0BBB5 /* SystemConfiguration.framework */; };
+		04ACE68E1A64C91D00E0BBB5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ACE68D1A64C91D00E0BBB5 /* ViewController.xib */; };
+		04ACE6911A64C92600E0BBB5 /* ESTAccelerometerDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE6901A64C92600E0BBB5 /* ESTAccelerometerDemoVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,6 @@
 		04ACE64A1A63771C00E0BBB5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		04ACE64C1A63771C00E0BBB5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		04ACE64D1A63771C00E0BBB5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		04ACE6501A63771C00E0BBB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04ACE6521A63771C00E0BBB5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		04ACE6551A63771C00E0BBB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		04ACE65B1A63771C00E0BBB5 /* CleanMGHTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanMGHTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +71,9 @@
 		04ACE6861A6378AA00E0BBB5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		04ACE6881A6378B200E0BBB5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		04ACE68A1A6378BB00E0BBB5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		04ACE68D1A64C91D00E0BBB5 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		04ACE68F1A64C92600E0BBB5 /* ESTAccelerometerDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTAccelerometerDemoVC.h; sourceTree = "<group>"; };
+		04ACE6901A64C92600E0BBB5 /* ESTAccelerometerDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESTAccelerometerDemoVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,11 +121,13 @@
 		04ACE6441A63771C00E0BBB5 /* CleanMGH */ = {
 			isa = PBXGroup;
 			children = (
+				04ACE68F1A64C92600E0BBB5 /* ESTAccelerometerDemoVC.h */,
+				04ACE6901A64C92600E0BBB5 /* ESTAccelerometerDemoVC.m */,
 				04ACE6491A63771C00E0BBB5 /* AppDelegate.h */,
 				04ACE64A1A63771C00E0BBB5 /* AppDelegate.m */,
 				04ACE64C1A63771C00E0BBB5 /* ViewController.h */,
 				04ACE64D1A63771C00E0BBB5 /* ViewController.m */,
-				04ACE64F1A63771C00E0BBB5 /* Main.storyboard */,
+				04ACE68D1A64C91D00E0BBB5 /* ViewController.xib */,
 				04ACE6521A63771C00E0BBB5 /* Images.xcassets */,
 				04ACE6541A63771C00E0BBB5 /* LaunchScreen.xib */,
 				04ACE6451A63771C00E0BBB5 /* Supporting Files */,
@@ -291,7 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04ACE6511A63771C00E0BBB5 /* Main.storyboard in Resources */,
+				04ACE68E1A64C91D00E0BBB5 /* ViewController.xib in Resources */,
 				04ACE6561A63771C00E0BBB5 /* LaunchScreen.xib in Resources */,
 				04ACE6531A63771C00E0BBB5 /* Images.xcassets in Resources */,
 			);
@@ -311,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04ACE6911A64C92600E0BBB5 /* ESTAccelerometerDemoVC.m in Sources */,
 				04ACE64E1A63771C00E0BBB5 /* ViewController.m in Sources */,
 				04ACE64B1A63771C00E0BBB5 /* AppDelegate.m in Sources */,
 				04ACE6481A63771C00E0BBB5 /* main.m in Sources */,
@@ -336,14 +342,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		04ACE64F1A63771C00E0BBB5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04ACE6501A63771C00E0BBB5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		04ACE6541A63771C00E0BBB5 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

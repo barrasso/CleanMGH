@@ -11,6 +11,14 @@
 
 @interface ViewController () <ESTBeaconManagerDelegate>
 
+// UI properties
+@property (strong, nonatomic) IBOutlet UIImageView *beaconImage;
+@property (strong, nonatomic) IBOutlet UILabel *counterLabel;
+@property (strong, nonatomic) IBOutlet UILabel *activityLabel;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+
+
 // estimote beacon properties
 @property (nonatomic, strong) ESTBeaconManager  *beaconManager;
 @property (nonatomic, strong) ESTBeaconRegion   *beaconRegion;
@@ -114,15 +122,15 @@
     [errorView show];
 }
 
-- (void)beaconManager:(ESTBeaconManager *)manager didEnterRegion:(ESTBeaconRegion *)region
-{
-    [self sendEnterNotification];
-}
-
-- (void)beaconManager:(ESTBeaconManager *)manager didExitRegion:(ESTBeaconRegion *)region
-{
-    [self sendExitNotification];
-}
+//- (void)beaconManager:(ESTBeaconManager *)manager didEnterRegion:(ESTBeaconRegion *)region
+//{
+//    [self sendEnterNotification];
+//}
+//
+//- (void)beaconManager:(ESTBeaconManager *)manager didExitRegion:(ESTBeaconRegion *)region
+//{
+//    [self sendExitNotification];
+//}
 
 - (void)beaconManager:(ESTBeaconManager *)manager
      didRangeBeacons:(NSArray *)beacons

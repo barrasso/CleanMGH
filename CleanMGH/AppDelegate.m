@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "ESTBeaconManager.h"
+#import "ESTConfig.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,17 @@
 #pragma mark - Application Methods
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [ESTConfig setupAppID:@"app_2iwbh3kp30" andAppToken:@"ea2a4d4a89bcd796eccd3db5d4857b55"];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    ViewController* demoList = [[ViewController alloc] init];
+    
+    self.mainNavigation = [[UINavigationController alloc] initWithRootViewController:demoList];
+    self.window.rootViewController = self.mainNavigation;
+    
+    [self.window makeKeyAndVisible];
+
     
     // define type of registered local notification
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
